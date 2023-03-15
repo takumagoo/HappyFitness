@@ -1,12 +1,41 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "publics/shared/error_messages", resource: resource %>
+
+  <%= render "public/shared/error_messages", resource: resource %>
+
+  <label>名前</label><br />
+  (姓)<%= f.text_field :last_name, class: "mr-5" %>(名)<%= f.text_field :first_name %>
+
+  <label>フリガナ</label><br />
+  (セイ)<%= f.text_field :last_name_kana, class: "mr-4" %>(メイ)<%= f.text_field :first_name_kana %>
+
+  <label>性別</label><br />
+  <%= f.radio_button :sex, "man" %>
+  <%= f.label :sex, "男性" %></br>
+
+  <%= f.radio_button :sex, "woman" %>
+  <%= f.label :sex, "女性" %>
+
+  <label>生年月日</label><br />
+  <%= f.label :year_birth %><br />
+  <%= f.date_select :year_birth,start_year: 1930, end_year: (Time.now.year - 15), default: Date.new(1989, 1, 1) %>
+
+  <label>年齢</label><br />
+  <%= f.text_field :age %>
 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+
+  <label>郵便番号(ハイフンなし)</label><br />
+  <%= f.text_field :postal_code %>
+
+  <label>住所</label><br />
+  <%= f.text_field :telephone_number %>
+
+
 
   <div class="field">
     <%= f.label :password %>
@@ -22,8 +51,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録", class: "btn btn-success" %>
   </div>
+
+  <h3><strong>既に登録済みの方</strong></h3>
+  <%= link_to 'こちら', new_customer_session_path %>からログインしてください。
+
 <% end %>
 
-<%= render "publics/shared/links" %>
+<%= render "public/shared/links" %>

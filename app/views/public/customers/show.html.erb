@@ -1,2 +1,25 @@
-<h1>Public::Customers#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<h5>会員詳細</h5>
+
+<!--画像-->
+<%= image_tag current_customer.get_profile_image(200, 200, "Center") %><br/>
+
+<lable>氏名</lable><br/>
+<%= current_customer.last_name %><%= current_customer.first_name %>
+
+<lable>カナ</lable><br/>
+<%= current_customer.last_name_kana %><%= current_customer.first_name_kana %>
+
+<lable>性別</lable><br/>
+
+<lable>生年月日</lable><br/>
+
+<lable>郵便番号</lable>
+<%= current_customer.postal_code %>
+
+<lable>住所</lable>
+<%= current_customer.address %>
+
+<lable>メールアドレス</lable>
+<%= current_customer.email %>
+
+<%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %>

@@ -1,0 +1,10 @@
+<h5>会員証</h5>
+
+<!--画像-->
+<%= image_tag current_customer.get_profile_image(400, 400, "Center") %>
+
+<!--バーコード-->
+<%= image_tag @barcode %>
+
+<!--詳細ボタン-->
+<%= link_to "編集する", customer_path(current_customer.id), class: "btn btn-success" %>
