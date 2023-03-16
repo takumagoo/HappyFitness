@@ -15,9 +15,8 @@ class Public::CustomersController < ApplicationController
   end
 
 
-  def member
+  def member #会員証機能
     @customer = Customer.new
-
     # パラメータ
     content = current_customer.id # QRコードの中身 会員情報を入れたいときは会員のurlを入れる
     xdim    = 3  # 一番細いバーの幅

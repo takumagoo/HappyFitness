@@ -15,4 +15,12 @@ class Customer < ApplicationRecord
     profile_image.variant(resize_to_fill: [width, height]).processed
   end
   
+  # ゲストログイン
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+    end
+  end
+  
+  
 end

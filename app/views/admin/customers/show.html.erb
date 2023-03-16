@@ -1,2 +1,123 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<%= render 'admin/header' %>
+
+<p id="notice"></p>
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-12">
+      <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報</h4>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>会員ID</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.id %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <label>氏名</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.last_name %><%= @customer.first_name %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>フリガナ</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>性別</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.sex_i18n %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>生年月日</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.year_birth %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>年齢</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.age %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>郵便番号</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.postal_code %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>住所</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.address %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>電話番号</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.telephone_number %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>メールアドレス</label>
+        </div>
+        <div class="col-md-8">
+          <%= @customer.email %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <label>会員ステータス</label>
+        </div>
+        <div class="col-md-8">
+          <% if @customer.is_deleted == false %>
+            有効
+          <% else %>
+            退会
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 offset-md-2">
+          <!--編集ボタン-->
+          <%= link_to '編集する', edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
+        </div>
+        <div class="col-md-8"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'admin/footer' %>

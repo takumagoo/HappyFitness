@@ -1,3 +1,6 @@
+
+<%= render 'public/header' %>
+
 <h5>会員編集</h5>
 
 <%= form_with model:  @customer, url:customer_path, method: :patch do |f| %>
@@ -38,3 +41,4 @@
 
 <% end %>
 
+<%= render 'public/footer' %>

@@ -1,27 +1,128 @@
-<h5>会員情報編集</h5>
+<%= render 'admin/header' %>
 
-<%= form_with model: @customer, url:customer_path(@customer.id), method: :patch do |f| %>
-  <label>商品画像</label>
-  <%= f.file_field :image, accept: "image/*" %>
-  <label>氏名</label>
-  <%= f.text_field :last_name, class: "mr-3" %><%= f.text_field :first_name %>
-  <label>カナ</label>
-  <%= f.text_field :last_name_kana, class: "mr-3" %><%= f.text_field :first_name_kana %>
-  <label>性別</label>
+<p id="notice"></p>
 
-  <label>生年月日</label>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-12">
+      <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
+    </div>
+    <div>
+      <%= form_with model: @customer, url:admin_customer_path, method: :patch do |f| %>
+        <div class="row">
+          <div class="col-md-4">
+            <label>氏名</label>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_field :last_name %>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_field :first_name %>
+          </div>
+        </div>
 
-  <label>年齢</label>
+        <div class="row">
+          <div class="col-md-4">
+            <label>フリガナ</label>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_field :last_name_kana %>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_field :first_name_kana %>
+          </div>
+        </div>
 
-  <label>郵便番号</label>
-  <%= f.text_field :postal_code %>
-  <label>住所</label>
-  <%= f.text_field :address %>
-  <label>電話番号</label>
-  <%= f.text_field :telephone_number %>
-  <label>メールアドレス</label>
-  <%= f.text_field :email %>
+        <div class="row">
+          <div class="col-md-4">
+            <label>性別</label>
+          </div>
+          <div class="col-md-8">
+              <%= f.radio_button :sex, "man" %>
+              <%= f.label :sex, "男性" %></br>
+              <%= f.radio_button :sex, "woman" %>
+              <%= f.label :sex, "女性" %>
+          </div>
+        </div>
 
-  <%= f.submit '編集内容を保存', class: "btn btn-success mr-5" %>
+        <div class="row">
+          <div class="col-md-4">
+            <label>生年月日</label>
+          </div>
+          <div class="col-md-8">
+            <%#= f.label :year_birth %>
+            <%= f.date_select :year_birth,start_year: 1930, end_year: (Time.now.year - 15), default: Date.new(1989, 1, 1) %>
+          </div>
+        </div>
 
-<% end %>
+        <div class="row">
+          <div class="col-md-4">
+            <label>年齢</label>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :age %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label>郵便番号</label>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :postal_code %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label>住所</label>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :address %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <label>電話番号</label>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :telephone_number %>
+          </div>
+        </div>
+
+         <div class="row">
+          <div class="col-md-4">
+            <label>メールアドレス</label>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_field :email %>
+          </div>
+        </div>
+
+         <div class="row">
+          <div class="col-md-4">
+            <label>会員ステータス</label>
+          </div>
+          <div class="col-md-8">
+            <%= f.radio_button :is_deleted, false %>
+            <%= f.label :is_deleted_false, "有効" %>
+
+            <%= f.radio_button :is_deleted, true %>
+            <%= f.label :is_deleted_true, "退会" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.submit '変更を保存', class: "btn btn-success" %>
+          </div>
+          <div class="col-md-6">
+            <%= link_to "退会する", admin_customers_unsubscribe_path, class: "btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'admin/footer' %>

@@ -1,0 +1,24 @@
+<style>
+  main{
+    height: 100%;
+  }
+</style>
+
+<%= render 'public/header' %>
+
+<p id="notice"></p>
+
+<div class="row h-100 d-flex text-center align-items-center">
+  <div class="w-100">
+    <h4 class="mb-5"><strong>本当に退会しますか？</strong></h4>
+    <p>
+      退会すると、会員登録情報や</br>
+      これまでの購入履歴が閲覧できなくなります。</br>
+      退会する場合は「退会をする」をクリックしてください。
+    </p>
+    <%= link_to "退会しない", admin_root_path, class: "btn btn-primary mr-3" %>
+    <%= link_to "退会する", admin_customers_withdraw_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger" %>
+  </div>
+</div>
+
+<%= render 'public/footer' %>
