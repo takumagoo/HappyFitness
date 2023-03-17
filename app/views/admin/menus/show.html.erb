@@ -1,2 +1,20 @@
-<h1>Admin::Menus#show</h1>
-<p>Find me in app/views/admin/menus/show.html.erb</p>
+<%= render 'admin/header' %>
+
+<h5>トレーニングメニュー詳細</h5>
+
+<!--ジャンル名-->
+<label>ジャンル名</label></br>
+<%= @menu.genre.name %>
+
+<% @genres.each do |genre| %>
+  <!--トレーニングメニュー名-->
+  <label>メニュー名</label>
+  <%= genre.menus.name %>
+  <!--説明-->
+  <label>説明</label>
+  <%= genre.menus.explanation %>
+  <!--編集ボタン-->
+  <%= link_to '編集する', edit_admin_menu_path(menu.id), class: "btn btn-success" %>
+<% end %>
+
+<%= render 'admin/footer' %>

@@ -13,16 +13,14 @@ Rails.application.routes.draw do
   # 管理者
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
-
   }
 
   namespace :admin do
     root to: "homes#top"
-  
+
     patch '/customers/withdraw' => 'customers#withdraw'
     get 'customers/unsubscribe' => 'customers#unsubscribe'
     resources :customers, only: [:index, :show, :edit, :update]
-
     resources :genres, only: [:index, :create, :edit, :update]
     resources :menus, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
