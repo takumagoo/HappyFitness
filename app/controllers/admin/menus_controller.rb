@@ -1,7 +1,8 @@
 class Admin::MenusController < ApplicationController
 
   def index
-    @menus = Menu.all
+    # @menus = Menu.all
+    @genre = Genre.find(params[:id])
   end
 
   def new
@@ -16,11 +17,22 @@ class Admin::MenusController < ApplicationController
 
   def show
     @menu = Menu.find(params[:id])
-    @genres = Genre.all
   end
 
   def edit
+    @menu = Menu.find(params[:id])
+  end
 
+  def update
+    menu = Menu.find(params[:id])
+    menu.update(menu_params)
+    redirect_to admin_menu_path(menu.id)
+  end
+
+  def destroy
+    menu = Menu.find(params[:id])
+    menu.destroy
+    redirect_to admin_menu_path(menu.id)
   end
 
   def menu_params

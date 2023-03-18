@@ -6,15 +6,15 @@
 <label>ジャンル名</label></br>
 <%= @menu.genre.name %>
 
-<% @genres.each do |genre| %>
+<%# @genre.menus.each do |menu| %>
   <!--トレーニングメニュー名-->
   <label>メニュー名</label>
-  <%= genre.menus.name %>
+  <%= @menu.name %>
   <!--説明-->
   <label>説明</label>
-  <%= genre.menus.explanation %>
+  <%= @menu.explanation %>
   <!--編集ボタン-->
-  <%= link_to '編集する', edit_admin_menu_path(menu.id), class: "btn btn-success" %>
-<% end %>
+  <%= link_to '編集する', edit_admin_menu_path(@menu.id), class: "btn btn-success" %>
+<%# end %>
 
 <%= render 'admin/footer' %>

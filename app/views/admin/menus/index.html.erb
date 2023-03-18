@@ -17,21 +17,23 @@
       <table class="table table-hover table-inverse">
         <thead class="table-secondary">
           <tr>
-            <th>トレーニングメニュー名</th>
             <th>ジャンル名</th>
+            <th>トレーニングメニュー名</th>
           </tr>
         </thead>
         <tbody>
-          <% @menus.each do |menu| %>
+
             <tr>
+              <td><%= @genre.name %></td>
+              <% @genre.menus.each do |menu| %>
               <td>
                 <%= link_to admin_menu_path(menu.id) do %>
                   <%= menu.name %>
                 <% end %>
               </td>
-              <td><%= menu.genre.name %></td>
+              <% end %>
             </tr>
-          <% end %>
+
         </tbody>
       </table>
     </div>

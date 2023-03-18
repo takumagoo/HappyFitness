@@ -17,7 +17,7 @@
       退会する場合は「退会をする」をクリックしてください。
     </p>
     <%= link_to "退会しない", admin_root_path, class: "btn btn-primary mr-3" %>
-    <%= link_to "退会する", admin_customers_withdraw_path, method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger" %>
+    <%= link_to "退会する", admin_withdraw_path(@customer.id), method: :patch, data: { confirm: "本当に退会しますか？" }, class: "btn btn-danger" %>
   </div>
 </div>
 

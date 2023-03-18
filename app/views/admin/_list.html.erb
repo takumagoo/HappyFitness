@@ -1,0 +1,41 @@
+<%= render 'admin/header' %>
+
+<h5 class="mt-4 ml-3">会員一覧</h5>
+
+<table class="table mt-4">
+  <thead class="table-secondary">
+    <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.id %></td>
+      <td>
+        <% if admin_signed_in? %>
+          <%= link_to  admin_customer_path(customer.id) do %>
+            <%= customer.last_name %><%= customer.first_name %>
+          <% end %>
+
+        <% else %>
+          <%= customer.last_name %><%= customer.first_name %>
+        <% end %>
+      </td>
+      <td><%= customer.email %></td>
+      <td>
+         <% if customer.is_deleted == false %>
+          有効
+        <% else %>
+          退会
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'admin/footer' %>

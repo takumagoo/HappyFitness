@@ -37,8 +37,12 @@
                   <div class="col-3 pb-3">
                     <%= genre.name %>
                   </div>
-                  <div class="col-9 pb-3">
+                  <div class="col-4 pb-3">
                     <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %><br>
+                  </div>
+                  <div class="col-5 pb-3">
+                    <!--トレーニングメニュー一覧-->
+                    <%= link_to "トレーニングメニュー一覧", admin_index_path(genre.id), class: "btn btn-primary" %>
                   </div>
                 </div>
               </li>

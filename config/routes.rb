@@ -18,11 +18,12 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "homes#top"
 
-    patch '/customers/withdraw' => 'customers#withdraw'
-    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch '/customers/:id/withdraw' => 'customers#withdraw', as: "withdraw"
+    get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: "unsubscribe"
     resources :customers, only: [:index, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
-    resources :menus, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    get 'menus/:id/index' => 'menus#index', as: "index"
+    resources :menus, only: [:new, :create, :show, :edit, :update, :destroy]
   end
 
   scope module: :public do

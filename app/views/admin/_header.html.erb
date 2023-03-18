@@ -1,7 +1,13 @@
 <header class="shadow-sm">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container">
-        <h1><%= link_to "Top", admin_root_path, class: "btn btn-sm btn-outline-secondary ml-3" %></h1>
+        <!--<h1><%#= link_to "Top", admin_root_path, class: "btn btn-sm btn-outline-secondary ml-3" %></h1>-->
+
+        <%= link_to admin_root_path do %>
+          <!--Home-->
+          <i class="fas fa-house-user"></i>
+        <% end %>
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
