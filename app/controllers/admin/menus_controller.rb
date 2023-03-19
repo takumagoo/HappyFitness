@@ -31,8 +31,9 @@ class Admin::MenusController < ApplicationController
 
   def destroy
     menu = Menu.find(params[:id])
+    genre_id = menu.genre.id
     menu.destroy
-    redirect_to admin_menu_path(menu.id)
+    redirect_to admin_index_path(genre_id)
   end
 
   def menu_params

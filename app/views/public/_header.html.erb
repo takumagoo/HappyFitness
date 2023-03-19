@@ -1,8 +1,15 @@
 <header class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-      <h1><%= link_to "Top", root_path, class: "btn btn-sm btn-outline-secondary ml-3" %></h1>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <%= link_to root_path do %>
+        <i class="fas fa-house-user"></i>
+      <% end %>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" style="text-align :right" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
             <li>ようこそ、<%=current_customer.last_name %>さん!</li>

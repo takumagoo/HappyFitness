@@ -1,11 +1,30 @@
+
 <footer class="shadow-sm">
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <% if customer_signed_in? %>
-            <li class="nav-item"><%= link_to "会員証",  customers_member_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>
-            <li class="nav-item"><%= link_to "検索",  destroy_customer_session_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>
+            
+           <div class="dropdown d-sm-none d-xs-none d-md-none d-lg-block">
+              <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+              </a>
+            
+              <div class="dropdown-menu " aria-labelledby="dropdownMenuLink" >
+                <a class="dropdown-item" href="#"><%= link_to "会員証",  customers_member_path, class: "btn btn-sm btn-outline-secondary ml-3" %></a>
+                <a class="dropdown-item" href="#"><%= link_to "検索",  genres_path, class: "btn btn-sm btn-outline-secondary ml-3" %></a>
+              </div>
+            </div>
+          
+          
+          
+          
+          
+          
+          
+          <!--  <li class="nav-item"><%#= link_to "会員証",  customers_member_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
+          <!--  <li class="nav-item"><%#= link_to "検索",  genres_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
           <%# else %>
             <!--<li class="nav-item"><%#= link_to "新規登録", new_customer_registration_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
             <!--<li class="nav-item"><%#= link_to "ログイン", new_customer_session_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->

@@ -1,2 +1,11 @@
-<h1>Public::Genres#show</h1>
-<p>Find me in app/views/public/genres/show.html.erb</p>
+<%= render 'public/header' %>
+
+<label>ジャンル名</label></br>
+<%= @genre.name %></br>
+<label>メニュー名</label>
+<label>説明</label>
+<% @genre.menus.each do |menu| %>
+  <%= menu.name %></br>
+  <%= menu.explanation%>
+<% end %>
+<%= render 'public/footer' %>
