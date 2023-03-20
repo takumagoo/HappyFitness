@@ -3,10 +3,10 @@
 <p id="notice"></p>
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
       <div class="row mb-3">
         <div class="col-md-5">
-          <h4>トレーニングメニュー一覧</h4>
+          <h5>トレーニングメニュー一覧</h5>
         </div>
         <div class="col-md-2 offset-md-5">
           <div>
@@ -22,18 +22,16 @@
           </tr>
         </thead>
         <tbody>
-
-            <tr>
-              <td><%= @genre.name %></td>
-              <% @genre.menus.each do |menu| %>
-              <td>
-                <%= link_to admin_menu_path(menu.id) do %>
-                  <%= menu.name %>
-                <% end %>
-              </td>
+          <% @genre.menus.each do |menu| %>
+          <tr>
+            <td><%= @genre.name %></td>
+            <td>
+              <%= link_to admin_menu_path(menu.id) do %>
+                <%= menu.name %>
               <% end %>
-            </tr>
-
+            </td>
+          </tr>
+          <% end %>
         </tbody>
       </table>
     </div>

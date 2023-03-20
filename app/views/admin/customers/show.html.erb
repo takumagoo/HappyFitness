@@ -102,9 +102,9 @@
         </div>
         <div class="col-md-8">
           <% if @customer.is_deleted == false %>
-            有効
+            <p class="text-success font-weight-bold">有効</p>
           <% else %>
-            退会
+            <p class="text-secondary font-weight-bold">退会</p>
           <% end %>
         </div>
       </div>

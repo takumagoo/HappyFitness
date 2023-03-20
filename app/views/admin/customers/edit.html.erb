@@ -7,13 +7,13 @@
     <div class="col-md-12">
       <h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
     </div>
-    <div>
+    <div class="mt-4">
       <%= form_with model: @customer, url:admin_customer_path, method: :patch do |f| %>
         <div class="row">
           <div class="col-md-4">
             <label>氏名</label>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" style="width :140px" >
             <%= f.text_field :last_name %>
           </div>
           <div class="col-md-4">
@@ -39,7 +39,7 @@
           </div>
           <div class="col-md-8">
               <%= f.radio_button :sex, "man" %>
-              <%= f.label :sex, "男性" %></br>
+              <%= f.label :sex, "男性" %>
               <%= f.radio_button :sex, "woman" %>
               <%= f.label :sex, "女性" %>
           </div>

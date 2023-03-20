@@ -4,23 +4,32 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-12">
-      <h5>トレーニングメニュー編集</h5>
+      <h5 class="mb-4">トレーニングメニュー編集</h5>
       <%= form_with model: @menu, url:admin_menu_path, method: :patch do |f| %>
         <div class="row">
           <div class="col-2 pb-3">
             <p>メニュー名</p>
           </div>
           <div class="col-3 pb-3">
-            <p>説明</p>
+            <%= f.text_field :name %>
           </div>
         </div>
         <div class="row">
           <div class="col-2 pb-3">
-            <%= f.text_field :name %>
+            <p>説明</p>
           </div>
-          <div class="col-3 pb-3">
+          <!--<div class="col-3 pb-3", style="width :506px; height: 206px;">-->
+          <div class="col-3 pb-3" >
             <%= f.text_area :explanation %>
           </div>
+
+          <!--追加!-->
+          <!--<div class="mb-3">-->
+          <!--  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>-->
+          <!--  <%#= f.text_area class: "form-control" id="exampleFormControlTextarea1" rows="3"%>-->
+          <!--</div>-->
+
+
         </div>
         <div  class="row">
           <div class="col-5 mr-2">

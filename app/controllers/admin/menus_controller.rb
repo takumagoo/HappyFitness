@@ -7,6 +7,7 @@ class Admin::MenusController < ApplicationController
 
   def new
     @menu = Menu.new
+    # @genre = Genre.find(params[:id])
   end
 
   def create

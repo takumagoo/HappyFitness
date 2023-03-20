@@ -4,52 +4,54 @@
 
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <div class="col-6">
-      <h4>ジャンル一覧・追加</h4>
-      <%= form_with model: @genre, url:admin_genres_path do |f| %>
+    <div class="col-md-12">
+      <div class="col-md-7 mb-4">
+        <h4>ジャンル一覧・追加</h4>
+        <%= form_with model: @genre, url:admin_genres_path do |f| %>
+          <div class="row mt-4">
+            <div class="col-3 pb-3">
+              <p>ジャンル名</p>
+            </div>
+            <div class="col-7 pb-3">
+              <%= f.text_field :name %>
+            </div>
+            <div class="col-1 pb-3">
+              <%= f.submit '新規登録', class: "btn btn-success" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+        <!--ジャンル一覧-->
         <div class="row">
-          <div class="col-3 pb-3">
-            <p>ジャンル名</p>
-          </div>
-          <div class="col-7 pb-3">
-            <%= f.text_field :name %>
-          </div>
-          <div class="col-1 pb-3">
-            <%= f.submit '新規登録', class: "btn btn-success" %>
-          </div>
-        </div>
-      <% end %>
-      <!--ジャンル一覧-->
-      <div class="row">
-        <div class="col-10">
-          <ul class="list-group">
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-11 pb-3">
-                  <h5>ジャンル</h5>
-                </div>
-                <div class="col-1 pb-3"></div>
-              </div>
-            </li>
-            <% @genres.each do |genre| %>
+          <div class="col-10">
+            <ul class="list-group">
               <li class="list-group-item">
-               <div class="row">
-                  <div class="col-3 pb-3">
-                    <%= genre.name %>
+                <div class="row">
+                  <div class="col-11 pb-3">
+                    <h5>ジャンル</h5>
                   </div>
-                  <div class="col-4 pb-3">
-                    <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %><br>
-                  </div>
-                  <div class="col-5 pb-3">
-                    <!--トレーニングメニュー一覧-->
-                    <%= link_to "トレーニングメニュー一覧", admin_index_path(genre.id), class: "btn btn-primary" %>
-                  </div>
+                  <div class="col-1 pb-3"></div>
                 </div>
               </li>
-            <% end %>
-          </ul>
+              <% @genres.each do |genre| %>
+                <li class="list-group-item">
+                 <div class="row">
+                    <div class="col-3 pb-3">
+                      <%= genre.name %>
+                    </div>
+                    <div class="col-4 pb-3">
+                      <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %><br>
+                    </div>
+                    <div class="col-5 pb-3">
+                      <!--トレーニングメニュー一覧-->
+                      <%= link_to "メニュー一覧", admin_index_path(genre.id), class: "btn btn-primary" %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>

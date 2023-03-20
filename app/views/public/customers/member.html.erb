@@ -9,7 +9,7 @@
 <%= image_tag @barcode %>
 
 <!--詳細ボタン-->
-<%= link_to "編集する", customer_path(current_customer.id), class: "btn btn-success" %>
+<%= link_to "編集する", edit_customer_path(current_customer.id), class: "btn btn-success" %>
 
 <%= render 'public/footer' %>
 

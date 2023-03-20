@@ -12,7 +12,7 @@ class Admin::CustomersController < ApplicationController
   end
 
   def unsubscribe
-    # @customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def withdraw
@@ -20,7 +20,7 @@ class Admin::CustomersController < ApplicationController
     @customer.update(is_deleted: true)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+    redirect_to admin_root_path
   end
 
 

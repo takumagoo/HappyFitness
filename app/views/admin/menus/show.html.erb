@@ -1,20 +1,45 @@
 <%= render 'admin/header' %>
 
-<h5>トレーニングメニュー詳細</h5>
+<p id="notice"></p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row mb-3">
+        <h5>トレーニングメニュー詳細</h5>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <label>ジャンル名</label>
+        </div>
+        <div class="col-5 pl-0">
+          <%= @menu.genre.name %>
+        </div>
+      </div>
 
-<!--ジャンル名-->
-<label>ジャンル名</label></br>
-<%= @menu.genre.name %>
+      <div class="row">
+        <div class="col-2">
+          <label>メニュー名</label>
+        </div>
+        <div class="col-8 pl-0">
+          <%= @menu.name %>
+        </div>
+      </div>
 
-<%# @genre.menus.each do |menu| %>
-  <!--トレーニングメニュー名-->
-  <label>メニュー名</label>
-  <%= @menu.name %>
-  <!--説明-->
-  <label>説明</label>
-  <%= @menu.explanation %>
-  <!--編集ボタン-->
-  <%= link_to '編集する', edit_admin_menu_path(@menu.id), class: "btn btn-success" %>
-<%# end %>
+      <div class="row">
+        <div class="col-2">
+          <label>説明</label>
+        </div>
+        <div class="col-10 pl-0">
+          <%= @menu.explanation %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2 mt-4">
+          <%= link_to '編集する', edit_admin_menu_path(@menu.id), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= render 'admin/footer' %>

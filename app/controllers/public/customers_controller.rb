@@ -2,14 +2,13 @@ require 'barby/barcode/code_128'
 require 'barby/outputter/png_outputter'
 
 class Public::CustomersController < ApplicationController
-
+  before_action :is_matching_login_customer, only: [:edit, :update]
   def show
     @customer = Customer.new
   end
 
   def edit
-    # 画像登録もする
-     @customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end
 
   def update
@@ -38,4 +37,10 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :sex, :year_birth, :age, :email, :postal_code, :address, :telephone_number, :is_deleted)
   end
 
+  def is_matching_login_customer
+    customer = Customer.find(params[:id])
+    unless customer.id == current_customer.id
+      redirect_to customers_member_path
+    end
+  end
 end
