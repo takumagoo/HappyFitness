@@ -8,7 +8,6 @@ class Admin::GenresController < ApplicationController
   def create
     genre = Genre.new(genre_params)
     genre.save
-    # リダイレクト (一応：一覧画面へ)
     redirect_to admin_genres_path
   end
 
@@ -19,7 +18,6 @@ class Admin::GenresController < ApplicationController
   def update
     genre = Genre.find(params[:id])
     genre.update(genre_params)
-    # リダイレクト (一応：一覧画面へ)
     redirect_to admin_genres_path
   end
 

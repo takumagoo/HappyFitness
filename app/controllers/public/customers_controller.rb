@@ -14,7 +14,7 @@ class Public::CustomersController < ApplicationController
   def update
     customer = Customer.find(params[:id])
     customer.update(customer_params)
-    redirect_to customer_path(customer.id)
+    redirect_to customers_mypage_path
   end
 
 
@@ -34,7 +34,7 @@ class Public::CustomersController < ApplicationController
 
    # ストロングパラメータ
   def customer_params
-    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :sex, :year_birth, :age, :email, :postal_code, :address, :telephone_number, :is_deleted)
+    params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :sex, :year_birth, :age, :email, :postal_code, :address, :telephone_number, :is_deleted, :profile_image)
   end
 
   def is_matching_login_customer

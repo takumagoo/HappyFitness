@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'menus/show'
+  end
   # 顧客
   devise_for :customers,skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -29,9 +32,10 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: "homes#top"
     get 'customers/member' => 'customers#member'
-    get '/customers/my_page' => 'customers#show'
+    get '/customers/mypage' => 'customers#show'
     resources :customers, only: [:edit, :update]
     resources :genres, only: [:index, :show]
+    resources :menus, only: [:show]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

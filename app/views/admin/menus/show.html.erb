@@ -30,12 +30,16 @@
           <label>説明</label>
         </div>
         <div class="col-10 pl-0">
-          <%= @menu.explanation %>
+          <%#= @menu.explanation %>
+          <%=simple_format(@menu.explanation)%>
         </div>
       </div>
-      <div class="row">
-        <div class="col-2 mt-4">
+      <div class="row mt-4">
+        <div class="col-2">
           <%= link_to '編集する', edit_admin_menu_path(@menu.id), class: "btn btn-success" %>
+        </div>
+        <div class="col-10">
+          <%= link_to 'メニュー一覧', admin_index_path(@menu.genre.id), class: "btn btn-primary" %>
         </div>
       </div>
     </div>

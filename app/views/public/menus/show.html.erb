@@ -1,0 +1,30 @@
+<h1>Public::Menus#show</h1>
+<p>Find me in app/views/public/menus/show.html.erb</p>
+<%= render 'public/header' %>
+
+<p id="notice"></p>
+
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <label>ジャンル名</label>
+        </div>
+        <div class="col-md-5">
+          <%= @genre.name %>
+        </div>
+      </div>
+      <% @genre.menus.each do |menu| %>
+        <div class="row mb-3">
+          <div>
+            <label><strong><%= menu.name %></strong></label></br>
+            <%= menu.explanation%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'public/footer' %>

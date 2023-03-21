@@ -1,37 +1,97 @@
 <%= render 'public/header' %>
 
-<h5>会員詳細</h5>
+<p id="notice"></p>
 
-<!--画像-->
-<%= image_tag current_customer.get_profile_image(200, 200, "Center") %><br/>
+<div class="container px-5 px-sm-0">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>会員詳細</h5>
+            <div class="row mt-5">
+                <div class="col-3 pb-3">
+                    <!--画像-->
+                    <%= image_tag current_customer.get_profile_image(200, 200, "Center") %>
+                </div>
+                <div class="col-8 mb-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>氏名</lable>
+                        </div>
+                        <div class="col-4">
+                            <%= current_customer.last_name %><%= current_customer.first_name %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>カナ</lable>
+                        </div>
+                        <div class="col-4">
+                            <%= current_customer.last_name_kana %><%= current_customer.first_name_kana %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>性別</lable>
+                        </div>
+                        <div class="col-4">
+                            <%= current_customer.sex_i18n %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>生年月日</lable>
+                        </div>
+                        <div class="col-4">
+                            <%= current_customer.year_birth %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>年齢</lable>
+                        </div>
+                        <div class="col-4">
+                            <%= current_customer.age %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>郵便番号</lable>
+                        </div>
+                        <div class="col-4">
+                            <%= current_customer.postal_code %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>住所</lable>
+                        </div>
 
-<lable>氏名</lable><br/>
-<%= current_customer.last_name %><%= current_customer.first_name %><br/>
-
-<lable>カナ</lable><br/>
-<%= current_customer.last_name_kana %><%= current_customer.first_name_kana %><br/>
-
-<lable>性別</lable><br/>
-<%= current_customer.sex_i18n %><br/>
-
-<lable>生年月日</lable><br/>
-<%= current_customer.year_birth %><br/>
-
-<lable>年齢</lable><br/>
-<%= current_customer.age %><br/>
-
-<lable>郵便番号</lable><br/>
-<%= current_customer.postal_code %><br/>
-
-<lable>住所</lable><br/>
-<%= current_customer.address %><br/>
-
-<lable>電話番号</lable><br/>
-<%= current_customer.telephone_number %><br/>
-
-<lable>メールアドレス</lable><br/>
-<%= current_customer.email %><br/>
-
-<%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %>
+                        <div class="col-4">
+                            <%= current_customer.address %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>電話番号</lable>
+                        </div>
+                        <div class="col-4">
+                            <%= current_customer.telephone_number %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <lable>メールアドレス</lable>
+                        </div>
+                        <div class="col-4">
+                            <%= current_customer.email %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 offset-md-5">
+                    <%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <%= render 'public/footer' %>
