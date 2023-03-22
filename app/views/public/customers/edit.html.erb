@@ -22,10 +22,10 @@
             <label>氏名</label>
           </div>
           <div class="col-md-4">
-            <%= f.text_field :last_name %>
+            <%= f.text_field :last_name, style: "width:150px" %>
           </div>
           <div class="col-md-4">
-            <%= f.text_field :first_name %>
+            <%= f.text_field :first_name, style: "width:150px" %>
           </div>
         </div>
         <div class="row mb-2">
@@ -33,10 +33,10 @@
             <label>カナ</label>
           </div>
           <div class="col-md-4">
-              <%= f.text_field :last_name_kana %>
+              <%= f.text_field :last_name_kana, style: "width:150px" %>
           </div>
           <div class="col-md-4">
-              <%= f.text_field :first_name_kana %>
+              <%= f.text_field :first_name_kana, style: "width:150px" %>
           </div>
         </div>
         <div class="row mb-2">
@@ -64,15 +64,16 @@
             <label>年齢</label>
           </div>
           <div class="col-md-4">
-            <%= f.text_field :age %>
+            <%= f.text_field :age, style: "width:50px" %>
           </div>
         </div>
-        <div class="row mb-2">
-          <div class="col-md-4">
-            <label>メールアドレス</label>
+
+        <div class="row">
+          <div class="col-md-3">
+             <label>郵便番号(ハイフンなし)</label>
           </div>
-          <div class="col-md-4">
-            <%= f.text_field :email %>
+          <div class="col-md-5 ml-4">
+            <%= f.text_field :postal_code, style: "width:200px" %>
           </div>
         </div>
         <div class="row mb-2">
@@ -80,7 +81,7 @@
             <label>住所</label>
           </div>
           <div class="col-md-4">
-            <%= f.text_field :address %>
+            <%= f.text_field :address, style: "width:400px" %>
           </div>
         </div>
 
@@ -89,7 +90,15 @@
             <label>電話</label>
           </div>
           <div class="col-md-4">
-            <%= f.text_field :telephone_number %>
+            <%= f.text_field :telephone_number, style: "width:200px" %>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-4">
+            <label>メールアドレス</label>
+          </div>
+          <div class="col-md-4">
+            <%= f.text_field :email, style: "width:400px" %>
           </div>
         </div>
         <div class="row mb-2">

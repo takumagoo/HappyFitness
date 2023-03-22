@@ -1,12 +1,14 @@
 class Public::GenresController < ApplicationController
   def index
-    # @genre = Genre.new
-    @genre = Genre.find(params[:genre])
-    # @genre = Genre.find(params[:id])
+    @genres = Genre.all
+    if params[:search]
+      @genre = Genre.find(params[:genre])
+    end
   end
 
   def show
-     @genre = Genre.find(params[:id])
+  
+    @genre = Genre.find(params[:id])
   end
 
 end

@@ -7,6 +7,10 @@ class Customer < ApplicationRecord
   
   has_one_attached :profile_image
   
+  def full_name
+    last_name + first_name
+  end
+  
   def get_profile_image(width, height, center)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

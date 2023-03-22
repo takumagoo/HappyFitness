@@ -3,19 +3,21 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-12">
+      <h5>トレーニングメニュー検索</h5>
       <div class="row">
 
         <div class="col-md-2">
           <div class="border border-dark">
             <p class="border-bottom border-dark">ジャンル検索</p>
             <div>
-              <% Genre.all.each do |genre|%>
+              <% @genres.each do |genre|%>
               <%# @genre.each do |genre|%>
-                <%= link_to genre.name, genres_path(genre: genre.id) %></br>
+                <%= link_to genre.name, genres_path(genre: genre.id, search: "search") %></br>
               <% end %>
             </div>
           </div>
         </div>
+        <% if params[:search] %>
 
         <div class="col-md-10">
           <% if @genre.blank? %>
@@ -38,8 +40,8 @@
             <% end %>
           </div>
         </div>
-
       </div>
+      <% end %>
     </div>
   </div>
 </div>

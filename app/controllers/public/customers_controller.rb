@@ -1,4 +1,7 @@
-require 'barby/barcode/code_128'
+# require 'barby/barcode/code_128'
+# require 'barby/outputter/png_outputter'
+
+require 'barby/barcode/qr_code'
 require 'barby/outputter/png_outputter'
 
 class Public::CustomersController < ApplicationController
@@ -20,14 +23,33 @@ class Public::CustomersController < ApplicationController
 
   def member #会員証機能
     @customer = Customer.new
+    # # パラメータ
+    # content = "#{current_customer.id}, #{current_customer.email}" # QRコードの中身 会員情報を入れたいときは会員のurlを入れる
+    # xdim    = 3  # 一番細いバーの幅
+    # #byebug
+    # code128 = Barby::Code128B.new(content)
+
+    # # HTMLのimgタグ用のbase64で出力
+    # @barcode = code128.to_image(xdim: xdim).to_data_url
+
     # パラメータ
-    content = current_customer.id # QRコードの中身 会員情報を入れたいときは会員のurlを入れる
+    content = "#{current_customer.id}, #{current_customer.full_name}, #{current_customer.email}" # QRコードの中身
+    size    = 3 # QRコードのバージョン 1〜40
+    level   = :m # 誤り訂正レベル, l/m/q/h
     xdim    = 3  # 一番細いバーの幅
 
-    code128 = Barby::Code128B.new(content)
+    # QRコード生成
+    qrcode = Barby::QrCode.new(content, size: size, level: level)
 
-    # HTMLのimgタグ用のbase64で出力
-    @barcode = code128.to_image(xdim: xdim).to_data_url
+    @barcode = qrcode.to_image(xdim: xdim).to_data_url
+
+
+
+
+
+
+
+
   end
 
   private
