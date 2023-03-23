@@ -1,6 +1,7 @@
 class Public::GenresController < ApplicationController
   def index
     @genres = Genre.all
+    
     if params[:search]
       @genre = Genre.find(params[:genre])
     end

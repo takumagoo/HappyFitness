@@ -21,16 +21,14 @@
               <%= f.text_field :name %>
           </div>
         </div>
-
         <div class="row">
           <div class="col-3 pb-3">
               <label>メニュー説明</label>
           </div>
           <div class="col-7 pb-3">
-              <%= f.text_area :explanation %>
+              <%= f.text_area :explanation, style: "width:600px", rows: "5" %>
           </div>
         </div>
-
         <div class="row">
           <div class="col-md-7">
               <%= f.submit '新規登録', class: "btn btn-success" %>

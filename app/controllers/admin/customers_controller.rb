@@ -18,7 +18,7 @@ class Admin::CustomersController < ApplicationController
   def withdraw
     @customer = Customer.find(params[:id])
     @customer.update(is_deleted: true)
-    reset_session
+    # reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to admin_root_path
   end

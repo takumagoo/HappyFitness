@@ -5,56 +5,30 @@
     <div class="col-md-12">
       <h5>トレーニングメニュー検索</h5>
       <div class="row">
-
         <div class="col-md-2">
           <div class="border border-dark">
             <p class="border-bottom border-dark">ジャンル検索</p>
             <div>
               <% @genres.each do |genre|%>
-              <%# @genre.each do |genre|%>
                 <%= link_to genre.name, genres_path(genre: genre.id, search: "search") %></br>
               <% end %>
             </div>
           </div>
         </div>
         <% if params[:search] %>
-
         <div class="col-md-10">
-          <% if @genre.blank? %>
-            <h5>メニュー一覧</h5>
-          <% else %>
-            <h5><%= @genre.name %>のメニュー一覧</h5>
-          <% end %>
-          <div class="d-flex flex-wrap">
-          <div class="row">
+          <h5><%= @genre.name %>のメニュー一覧</h5>
             <% @genre.menus.each do |menu| %>
-              <!--<div class="col-md-4">-->
-              <!--  <%#= menu.name %>-->
-              <!--</div>-->
               <div class="col-md-4">
-                <!--メニュー名-->
                 <%= link_to menu_path(menu.id) do %>
                   <%= menu.name %>
                 <% end %>
               </div>
             <% end %>
-          </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
 </div>
 
 <%= render 'public/footer' %>
-
-
-<%#= form_tag( genres_path, method: "get") do %>
- <%#= select_tag "genre.name",options_from_collection_for_select(Genre.all, :id, :name) %>
- <%#= submit_tag '検索', class: "btn btn-success" %>
-<%# end %>
-<!--<ul>-->
-
-    <!--<li><%#= link_to genre.name, genre_path(genre.id) %></li>-->
-<!--  <%# end %>-->
-<!--</ul>-->

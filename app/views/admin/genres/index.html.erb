@@ -40,11 +40,13 @@
                       <%= genre.name %>
                     </div>
                     <div class="col-4 pb-3">
-                      <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %><br>
-                    </div>
-                    <div class="col-5 pb-3">
-                      <!--トレーニングメニュー一覧-->
                       <%= link_to "メニュー一覧", admin_index_path(genre.id), class: "btn btn-primary" %>
+                    </div>
+                    <div class="col-3 pb-3">
+                      <%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-success" %>
+                    </div>
+                    <div class="col-2 pb-3">
+                      <%= link_to "削除", admin_genre_path(genre.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
                     </div>
                   </div>
                 </li>

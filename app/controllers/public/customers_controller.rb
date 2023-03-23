@@ -1,11 +1,14 @@
-# require 'barby/barcode/code_128'
-# require 'barby/outputter/png_outputter'
 
 require 'barby/barcode/qr_code'
 require 'barby/outputter/png_outputter'
 
 class Public::CustomersController < ApplicationController
+  # ログインした会員のみアクセスできる
   before_action :is_matching_login_customer, only: [:edit, :update]
+
+  # ゲストユーザーとしてログインした場合は閲覧を制限する
+  before_action :guest_check, only: [:show, :edit, :update]
+
   def show
     @customer = Customer.new
   end
@@ -20,18 +23,8 @@ class Public::CustomersController < ApplicationController
     redirect_to customers_mypage_path
   end
 
-
-  def member #会員証機能
+  def member #会員証画面
     @customer = Customer.new
-    # # パラメータ
-    # content = "#{current_customer.id}, #{current_customer.email}" # QRコードの中身 会員情報を入れたいときは会員のurlを入れる
-    # xdim    = 3  # 一番細いバーの幅
-    # #byebug
-    # code128 = Barby::Code128B.new(content)
-
-    # # HTMLのimgタグ用のbase64で出力
-    # @barcode = code128.to_image(xdim: xdim).to_data_url
-
     # パラメータ
     content = "#{current_customer.id}, #{current_customer.full_name}, #{current_customer.email}" # QRコードの中身
     size    = 3 # QRコードのバージョン 1〜40
@@ -40,16 +33,7 @@ class Public::CustomersController < ApplicationController
 
     # QRコード生成
     qrcode = Barby::QrCode.new(content, size: size, level: level)
-
     @barcode = qrcode.to_image(xdim: xdim).to_data_url
-
-
-
-
-
-
-
-
   end
 
   private
@@ -63,6 +47,13 @@ class Public::CustomersController < ApplicationController
     customer = Customer.find(params[:id])
     unless customer.id == current_customer.id
       redirect_to customers_member_path
+    end
+  end
+
+ #ゲストログインアクセス制限
+  def guest_check
+    if current_customer == Customer.find(3)
+      redirect_to root_path,notice: "このページを見るには会員登録が必要です。"
     end
   end
 end

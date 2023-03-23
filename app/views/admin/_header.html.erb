@@ -11,11 +11,11 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <% if admin_signed_in? %>
-              <li class="nav-item"><%= link_to "会員一覧",  admin_customers_path, class: "btn btn-sm btn-outline-secondary ml-3" %>
+              <li class="nav-item"><%= link_to "会員一覧",  admin_customers_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>
               <li class="nav-item"><%= link_to "ログアウト",  destroy_admin_session_path, method: :delete, class: "btn btn-sm btn-outline-secondary ml-3" %></li>
             <% else %>
               <li class="nav-item"><%= link_to "会員一覧",  admin_customers_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>
-              <!--<li class="nav-item"><%= link_to "新規登録", new_admin_session_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
+              <!--<li class="nav-item"><%#= link_to "新規登録", new_admin_session_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
               <li class="nav-item"><%= link_to "ログイン", new_admin_session_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>
               <!--ゲストログイン-->
               <!--<li class="nav-item"><%#= link_to 'ゲストログイン', admin_guest_sign_in_path, method: :post, class: "btn btn-sm btn-danger ml-3" %></li>-->

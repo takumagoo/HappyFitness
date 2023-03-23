@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     patch '/customers/:id/withdraw' => 'customers#withdraw', as: "withdraw"
     get 'customers/:id/unsubscribe' => 'customers#unsubscribe', as: "unsubscribe"
     resources :customers, only: [:index, :show, :edit, :update]
-    resources :genres, only: [:index, :create, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update, :destroy]
     get 'menus/:id/index' => 'menus#index', as: "index"
     resources :menus, only: [:new, :create, :show, :edit, :update, :destroy]
   end
