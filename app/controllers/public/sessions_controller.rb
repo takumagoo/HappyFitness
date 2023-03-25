@@ -34,6 +34,7 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   protected
+  
   # 退会しているかを判断するメソッド
   def reject_customer
     ## 【処理内容1】 入力されたemailからアカウントを1件取得

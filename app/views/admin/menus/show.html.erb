@@ -1,3 +1,4 @@
+<!--トレーニングメニュー詳細画面-->
 <%= render 'admin/header' %>
 
 <p id="notice"></p>
@@ -15,7 +16,6 @@
           <%= @menu.genre.name %>
         </div>
       </div>
-
       <div class="row">
         <div class="col-2">
           <label>メニュー名</label>
@@ -24,13 +24,11 @@
           <%= @menu.name %>
         </div>
       </div>
-
       <div class="row">
         <div class="col-2">
           <label>説明</label>
         </div>
         <div class="col-10 pl-0">
-          <%#= @menu.explanation %>
           <%=simple_format(@menu.explanation)%>
         </div>
       </div>

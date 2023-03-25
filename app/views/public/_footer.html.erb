@@ -1,3 +1,4 @@
+<!--フッター共通化-->
 </main>
 <footer>
   <nav class="navbar navbar-expand-lg navbar-light">
@@ -8,18 +9,11 @@
 
            <div class="dropdown d-sm-block d-xs-block d-md-block d-lg-block">
               <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
-
               <div class="dropdown-menu " aria-labelledby="dropdownMenuLink" >
                 <a class="dropdown-item" href="#"><%= link_to "会員証",  customers_member_path, class: "btn btn-sm btn-outline-secondary ml-3" %></a>
                 <a class="dropdown-item" href="#"><%= link_to "検索",  genres_path, class: "btn btn-sm btn-outline-secondary ml-3" %></a>
               </div>
             </div>
-          <!--  <li class="nav-item"><%#= link_to "会員証",  customers_member_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
-          <!--  <li class="nav-item"><%#= link_to "検索",  genres_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
-          <%# else %>
-            <!--<li class="nav-item"><%#= link_to "新規登録", new_customer_registration_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
-            <!--<li class="nav-item"><%#= link_to "ログイン", new_customer_session_path, class: "btn btn-sm btn-outline-secondary ml-3" %></li>-->
-            <!--ゲストログイン-->
           <% end %>
         </ul>
       </div>

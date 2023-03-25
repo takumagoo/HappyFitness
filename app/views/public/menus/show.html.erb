@@ -1,3 +1,4 @@
+<!--メニュー詳細画面-->
 
 <%= render 'public/header' %>
 
@@ -15,12 +16,12 @@
           <%= @menu.genre.name %>
         </div>
       </div>
-        <div class="row mb-3">
-          <div>
-            <label><strong><%= @menu.name %></strong></label></br>
-            <%= simple_format(@menu.explanation)%>
-          </div>
+      <div class="row mb-3">
+        <div>
+          <label><strong><%= @menu.name %></strong></label></br>
+          <%= simple_format(@menu.explanation)%>
         </div>
+      </div>
     </div>
   </div>
 </div>

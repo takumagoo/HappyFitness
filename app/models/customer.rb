@@ -7,10 +7,12 @@ class Customer < ApplicationRecord
 
   has_one_attached :profile_image
 
+  # QRコードの名前の関する情報
   def full_name
     last_name + first_name
   end
 
+  # 画像の有無判定
   def get_profile_image(width, height, center)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

@@ -43,6 +43,7 @@ class Public::CustomersController < ApplicationController
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :sex, :year_birth, :age, :email, :postal_code, :address, :telephone_number, :is_deleted, :profile_image)
   end
 
+  # 会員アクセス制限
   def is_matching_login_customer
     customer = Customer.find(params[:id])
     unless customer.id == current_customer.id

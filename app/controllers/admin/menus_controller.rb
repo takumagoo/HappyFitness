@@ -1,13 +1,11 @@
 class Admin::MenusController < ApplicationController
 
   def index
-    # @menus = Menu.all
     @genre = Genre.find(params[:id])
   end
 
   def new
     @menu = Menu.new
-    # @genre = Genre.find(params[:id])
   end
 
   def create
