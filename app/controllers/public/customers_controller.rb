@@ -53,7 +53,7 @@ class Public::CustomersController < ApplicationController
 
  #ゲストログインアクセス制限
   def guest_check
-    if current_customer == Customer.find(3)
+    if current_customer.email == 'guest@example.com'
       redirect_to root_path,notice: "このページを見るには会員登録が必要です。"
     end
   end
