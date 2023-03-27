@@ -62,6 +62,7 @@ gem 'barby'
 gem 'rqrcode'
 gem 'chunky_png'
 
+# ページネーション
 gem 'kaminari','~> 1.2.1'
 
 gem 'dotenv-rails'
