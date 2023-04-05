@@ -18,9 +18,12 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    customer = Customer.find(params[:id])
-    customer.update(customer_params)
-    redirect_to customers_mypage_path
+    @customer = Customer.find(params[:id])
+    if @customer.update(customer_params)
+      redirect_to customers_mypage_path
+    else
+      render :edit
+    end
   end
 
   def member #会員証画面

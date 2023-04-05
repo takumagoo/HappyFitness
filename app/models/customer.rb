@@ -6,6 +6,9 @@ class Customer < ApplicationRecord
   enum sex: { man: 0, woman: 1 }
 
   has_one_attached :profile_image
+  
+  #新規会員登録及び会員編集バリデーション
+  validates :age, numericality: { only_integer: true }
 
   # QRコードの名前の関する情報
   def full_name

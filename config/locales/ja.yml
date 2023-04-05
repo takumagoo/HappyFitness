@@ -28,3 +28,41 @@
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %Z"
     am: "午前"
     pm: "午後"
+
+  activerecord:
+    attributes:
+      customer:
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード(確認用)"
+        age: "年齢"
+    errors:
+      models:
+        customer:
+          attributes:
+            email:
+              blank: "を入力してください"
+            password:
+              blank: "を入力してください"
+            password_confirmation:
+              confirmation: "確認してください"
+            age:
+              not_a_number: "は整数で入力してください。"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
