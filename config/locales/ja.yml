@@ -36,6 +36,9 @@
         password: "パスワード"
         password_confirmation: "パスワード(確認用)"
         age: "年齢"
+      menu:
+        name: "メニュー名"
+        explanation: "説明"
     errors:
       models:
         customer:
@@ -48,6 +51,12 @@
               confirmation: "確認してください"
             age:
               not_a_number: "は整数で入力してください。"
+        menu:
+           attributes:
+            name:
+              blank: "を入力してください"
+            explanation:
+              blank: "を入力してください"
 
 
 
