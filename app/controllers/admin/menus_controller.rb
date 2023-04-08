@@ -10,13 +10,14 @@ class Admin::MenusController < ApplicationController
 
   def create
     @menu = Menu.new(menu_params)
-    
+
     if @menu.save
-      redirect_to admin_menu_path(menu.id)
+      redirect_to admin_menu_path(@menu.id
+)
     else
       render :new
     end
-  
+
   end
 
   def show
