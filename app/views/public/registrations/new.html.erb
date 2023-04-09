@@ -32,10 +32,9 @@
       </div>
       <div class="col-md-5 ml-4">
         <%= f.radio_button :sex, "man" %>
-        <%= f.label :sex, "男性" %>
-
+        <%= f.label :sex, "男性", value: "man" %>
         <%= f.radio_button :sex, "woman" %>
-        <%= f.label :sex, "女性" %>
+        <%= f.label :sex, "女性", value: "woman" %>
       </div>
     </div>
 
@@ -57,7 +56,6 @@
         <%= f.text_field :age, style: "width:50px" %>
       </div>
     </div>
-
 
 
     <div class="row">

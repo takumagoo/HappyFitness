@@ -29,6 +29,8 @@
     am: "午前"
     pm: "午後"
 
+
+
   activerecord:
     attributes:
       customer:
@@ -40,6 +42,8 @@
         name: "メニュー名"
         explanation: "説明"
     errors:
+      messages:
+        not_saved: "登録できませんでした"
       models:
         customer:
           attributes:

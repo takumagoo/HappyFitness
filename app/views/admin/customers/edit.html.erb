@@ -39,10 +39,10 @@
             <label>性別</label>
           </div>
           <div class="col-md-8">
-              <%= f.radio_button :sex, "man" %>
-              <%= f.label :sex, "男性" %>
-              <%= f.radio_button :sex, "woman" %>
-              <%= f.label :sex, "女性" %>
+            <%= f.radio_button :sex, "man" %>
+            <%= f.label :sex, "男性", value: "man" %>
+            <%= f.radio_button :sex, "woman" %>
+            <%= f.label :sex, "女性", value: "woman" %>
           </div>
         </div>
 
