@@ -1,4 +1,6 @@
 class Public::GenresController < ApplicationController
+  before_action :authenticate_customer!, except: [:top]
+
   def index
     @genres = Genre.all
 

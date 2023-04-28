@@ -1,4 +1,5 @@
 class Admin::MenusController < ApplicationController
+  before_action :authenticate_admin!, except: [:top]
 
   def index
     @genre = Genre.find(params[:id])
@@ -12,8 +13,7 @@ class Admin::MenusController < ApplicationController
     @menu = Menu.new(menu_params)
 
     if @menu.save
-      redirect_to admin_menu_path(@menu.id
-)
+      redirect_to admin_menu_path(@menu.id)
     else
       render :new
     end
